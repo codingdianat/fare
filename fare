@@ -11,9 +11,8 @@ using namespace std;
 
 
 int main (){
-    double fare=1.45;
-    double addition=0.55;
     double totalFare;
+
     cout.setf(ios::fixed);
     cout.precision(2);
     
@@ -37,16 +36,7 @@ int main (){
     
     cout <<"---"<<endl;
     
-    //The fare is $1.45 plus $0.55 per zone boundary crossed, unless a discount applies:
-    
-   // Riders under 18 get a break for short trips: For trips crossing 0 or 1 zone boundaries, the fare is $0.65
-   // For trips crossing 0 or 1 zone boundaries, students 18 or over get the same break as riders under 18.
-   // The senior fare for riders 65 and over is $0.55 plus $0.35 per zone boundary crossed. However, for a trip crossing 0 boundaries, the senior fare is only $0.45. Seniors who believe in lifelong learning (i.e., are students) are no dummies: They pay the cheapest fare available to them.
-    
-    
-                  
-    
-   
+
     if (destination == "" ){
         cout<< "You must enter a destination"<<endl;
     }
@@ -59,28 +49,35 @@ int main (){
         cout << "The number of zone boundaries crossed must not be negative"<<endl;
     }
     
-    if ((age<18 || student== "y") && (boundaries ==0 || boundaries == 1 )){
-        totalFare= 0.65;
-        cout<<"The fare to "<<destination<<" is $"<<totalFare<<endl;
-    }
-    else if (age >18 || student=="n"){
-        totalFare=fare+boundaries*0.55;
-        cout<<"The fare to "<<destination<<" is $"<<totalFare<<endl;
-    }
     
-    else if ((age >= 65 && boundaries == 0)){
+    
+    if ((age >= 65 && (boundaries == 0||boundaries==1))){
         totalFare=0.45;
         cout<<"The fare to "<<destination<< " is $"<<totalFare<<endl;
-        
     }
-    else if (age >= 65){
-        totalFare = (0.55 + boundaries*0.35);
-        cout << "The fare to " <<destination<<" is $" <<totalFare<<endl;
+    else if ((age<18 || student=="y") && (boundaries == 0 || boundaries == 1)){
+        totalFare=0.65;
+        cout<<"The fare to "<<destination<< " is $"<<totalFare<<endl;
     }
 
-    
-    
-    
+    else if ( age>=65 ){
+        totalFare=0.55+0.35*boundaries;
+        cout<<"The fare to "<<destination<<" is $"<<totalFare<<endl;
+    }
+    else if ((age >=18) || age<18){
+        totalFare=1.45+boundaries*0.55;
+        cout<<"The fare to "<<destination<<" is $"<<totalFare<<endl;
+    }
+
+
+
+
+
+
+ 
+    }
+
+
 
         
     
@@ -94,4 +91,4 @@ int main (){
     
    
     
-}
+
