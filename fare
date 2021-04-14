@@ -35,23 +35,25 @@ int main (){
     cin >> boundaries;
     
     cout <<"---"<<endl;
-    
 
     if (destination == "" ){
         cout<< "You must enter a destination"<<endl;
     }
     
-    if (student != "y" && student != "n"){
+    else if (student != "y" && student != "n"){
         cout << "You must enter y or n"<< endl;
     }
     
-    if (boundaries < 0){
+   else  if (boundaries < 0){
         cout << "The number of zone boundaries crossed must not be negative"<<endl;
     }
     
+    else if (age<0){
+        cout<<"The age must not be negative"<<endl;
+    }
     
     
-    if ((age >= 65 && (boundaries == 0||boundaries==1))){
+   else if ((age >= 65 && (boundaries == 0||boundaries==1))){
         totalFare=0.45;
         cout<<"The fare to "<<destination<< " is $"<<totalFare<<endl;
     }
@@ -69,13 +71,7 @@ int main (){
         cout<<"The fare to "<<destination<<" is $"<<totalFare<<endl;
     }
 
-
-
-
-
-
- 
-    }
+ }
 
 
 
